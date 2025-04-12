@@ -1,1 +1,44 @@
-<p>list works!</p>
+<div class="p-4 space-y-4">
+  <h1 class="text-xl font-semibold">Lista de Filmes</h1>
+
+  <form [formGroup]="paramsForm" class="flex gap-4 flex-wrap items-end">
+    <div>
+      <label class="block text-sm">Ano</label>
+      <input type="number" formControlName="year" class="border p-1 rounded" />
+    </div>
+    <div>
+      <label class="block text-sm">Vencedor</label>
+      <select formControlName="winner" class="border p-1 rounded">
+        <option [ngValue]="null">Todos</option>
+        <option [ngValue]="true">Sim</option>
+        <option [ngValue]="false">Não</option>
+      </select>
+    </div>
+  </form>
+
+  <table class="min-w-full border border-gray-300">
+    <thead class="bg-gray-100">
+      <tr>
+        <th class="border px-4 py-2 text-left">ID</th>
+        <th class="border px-4 py-2 text-left">Ano</th>
+        <th class="border px-4 py-2 text-left">Título</th>
+        <th class="border px-4 py-2 text-left">Vencedor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of movies" class="hover:bg-gray-50">
+        <td class="border px-4 py-2">{{ movie.id }}</td>
+        <td class="border px-4 py-2">{{ movie.year }}</td>
+        <td class="border px-4 py-2">{{ movie.title }}</td>
+        <td class="border px-4 py-2">
+          <span
+            class="px-2 py-1 rounded text-white"
+            [ngClass]="movie.winner ? 'bg-green-600' : 'bg-red-600'"
+          >
+            {{ movie.winner ? 'Sim' : 'Não' }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
