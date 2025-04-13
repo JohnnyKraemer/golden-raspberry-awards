@@ -15,14 +15,14 @@ export interface Pageable {
 
 export interface Pagination<T> {
   content: T[];
-  pageable: Pageable;
+  pageable?: Pageable;
   totalPages: number;
   totalElements: number;
   last: boolean;
   size: number;
   number: number;
-  sort: SortInfo;
+  sort?: SortInfo;
   first: boolean;
-  numberOfElements: number;
+  numberOfElements?: number;
   empty: boolean;
 }
