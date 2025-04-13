@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TopbarComponent } from './topbar/topbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CommonModule } from '@angular/common';
+import { LoaderService } from '../services/loader.service';
+import { LoaderComponent } from './loader/loader.component';
 
 @Component({
   selector: 'app-layout',
-  imports: [CommonModule, RouterOutlet, TopbarComponent, SidebarComponent],
+  imports: [CommonModule, RouterOutlet, TopbarComponent, SidebarComponent, LoaderComponent],
   templateUrl: './layout.component.html',
 })
 export class LayoutComponent {
