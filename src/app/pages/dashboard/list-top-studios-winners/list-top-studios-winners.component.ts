@@ -15,7 +15,7 @@ export class ListTopStudiosWinnersComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieService.getStudiosMultipleWinners().subscribe((res) => {
-      this.studios = res.studios;
+      this.studios = res.studios.slice(0, 3);
     });
   }
 }

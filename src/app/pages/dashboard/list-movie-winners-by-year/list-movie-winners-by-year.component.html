@@ -1,0 +1,46 @@
+<div class="card">
+  <h2 class="card-title">
+    Lista de Filmes Vencedores por Ano
+  </h2>
+
+  <div class="mt-2 mb-3">
+    <app-table-filter
+      [form]="paramsForm"
+      [activeFilters]="activeFilters"
+      (filtersCleared)="fetchMovies()"
+    ></app-table-filter>
+  </div>
+
+  <div class="table-container">
+    <table class="table">
+      <thead class="table-header">
+        <tr>
+          <th class="table-header-cell">ID</th>
+          <th class="table-header-cell">Ano</th>
+          <th class="table-header-cell">Título</th>
+        </tr>
+      </thead>
+      <tbody class="table-body">
+        <tr *ngFor="let movie of movies" class="table-row">
+          <td class="table-cell table-cell-text">
+            {{ movie.id }}
+          </td>
+          <td class="table-cell table-cell-muted">
+            {{ movie.year }}
+          </td>
+          <td class="table-cell table-cell-muted">{{ movie.title }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="100%">
+            <app-paginator
+              [pagination]="pagination"
+              [form]="paramsForm"
+            ></app-paginator>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
