@@ -13,11 +13,3 @@ export interface Movie {
   producers: string[];
   winner: boolean;
 }
-
-export interface GetMoviesResponse {
-  content: Movie[];
-  totalElements: number;
-  totalPages: number;
-  number: number;
-  size: number;
-}

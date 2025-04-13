@@ -1,8 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../../src/environments/environment';
-import { GetMoviesParams, GetMoviesResponse } from '../interfaces/movie';
+import { GetMoviesParams, Movie } from '../interfaces/movie';
 import { Observable } from 'rxjs';
+import { Pagination } from '../interfaces/pagination';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ export class MovieService {
   private http = inject(HttpClient);
   private baseUrl = environment.urlApi;
 
-  getMovies(params: GetMoviesParams): Observable<GetMoviesResponse> {
+  getMovies(params: GetMoviesParams): Observable<Pagination<Movie>> {
     let httpParams = new HttpParams()
       .set('page', params.page)
       .set('size', params.size);
@@ -24,6 +25,6 @@ export class MovieService {
       httpParams = httpParams.set('year', params.year);
     }
 
-    return this.http.get<GetMoviesResponse>(this.baseUrl, { params: httpParams });
+    return this.http.get<Pagination<Movie>>(this.baseUrl, { params: httpParams });
   }
 }

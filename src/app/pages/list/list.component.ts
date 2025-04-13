@@ -1,13 +1,15 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms'; // <-- certifique-se disso
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MovieService } from '../../services/movie.service';
 import { GetMoviesParams, Movie } from '../../interfaces/movie';
 import { debounceTime } from 'rxjs/operators';
+import { PaginatorComponent } from '../../components/paginator/paginator.component';
+import { Pagination } from '../../interfaces/pagination';
 
 @Component({
   selector: 'app-list',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, PaginatorComponent],
   templateUrl: './list.component.html',
 })
 export class ListComponent implements OnInit {
@@ -22,6 +24,8 @@ export class ListComponent implements OnInit {
     year: null,
     winner: null,
   });
+
+  pagination: Pagination<Movie> | null = null;
 
   ngOnInit(): void {
     this.paramsForm.valueChanges.pipe(debounceTime(300)).subscribe(() => {
@@ -43,6 +47,7 @@ export class ListComponent implements OnInit {
 
     this.movieService.getMovies(params).subscribe((res) => {
       this.movies = res.content;
+      this.pagination = res;
     });
   }
 }

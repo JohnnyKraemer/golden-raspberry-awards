@@ -1,0 +1,72 @@
+<div class="flex items-center justify-between p-2 pt-4 text-sm" *ngIf="pagination">
+  <div class="flex items-center space-x-1">
+    <button
+      class="h-9 w-9 flex items-center justify-center rounded transition font-semibold"
+      [class.opacity-50]="pagination.first"
+      [class.cursor-pointer]="!pagination.first"
+      [class.cursor-default]="pagination.first"
+      [disabled]="pagination.first"
+      (click)="goToPage(0)"
+    >
+      <span class="material-icons">first_page</span>
+    </button>
+
+    <button
+      class="h-9 w-9 flex items-center justify-center rounded transition font-semibold"
+      [class.opacity-50]="pagination.first"
+      [class.cursor-pointer]="!pagination.first"
+      [class.cursor-default]="pagination.first"
+      [disabled]="pagination.first"
+      (click)="goToPage(pagination.number - 1)"
+    >
+      <span class="material-icons">chevron_left</span>
+    </button>
+
+    <ng-container *ngFor="let page of pages()">
+      <button
+        class="h-9 w-9 flex items-center justify-center rounded transition font-semibold"
+        [ngClass]="{
+          'bg-blue-500 text-white': page === pagination.number,
+          'cursor-pointer': page !== pagination.number
+        }"
+        (click)="goToPage(page)"
+      >
+        {{ page + 1 }}
+      </button>
+    </ng-container>
+
+    <button
+      class="h-9 w-9 flex items-center justify-center rounded transition font-semibold"
+      [class.opacity-50]="pagination.last"
+      [class.cursor-pointer]="!pagination.last"
+      [class.cursor-default]="pagination.last"
+      [disabled]="pagination.last"
+      (click)="goToPage(pagination.number + 1)"
+    >
+      <span class="material-icons">chevron_right</span>
+    </button>
+
+    <button
+      class="h-9 w-9 flex items-center justify-center rounded transition font-semibold"
+      [class.opacity-50]="pagination.last"
+      [class.cursor-pointer]="!pagination.last"
+      [class.cursor-default]="pagination.last"
+      [disabled]="pagination.last"
+      (click)="goToPage(pagination.totalPages - 1)"
+    >
+      <span class="material-icons">last_page</span>
+    </button>
+  </div>
+
+  <div class="flex items-center space-x-2">
+    <label for="size">Itens por página:</label>
+    <select
+      id="size"
+      class="h-9 px-2 py-1 rounded border transition cursor-pointer"
+      [value]="pagination.size"
+      (change)="changePageSize($event)"
+    >
+      <option *ngFor="let s of [5, 10, 15, 20, 50]" [value]="s">{{ s }}</option>
+    </select>
+  </div>
+</div>

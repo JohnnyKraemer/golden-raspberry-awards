@@ -35,10 +35,20 @@
             class="px-2 py-1 rounded text-white"
             [ngClass]="movie.winner ? 'bg-green-600' : 'bg-red-600'"
           >
-            {{ movie.winner ? 'Sim' : 'Não' }}
+            {{ movie.winner ? "Sim" : "Não" }}
           </span>
         </td>
       </tr>
     </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4" class="border p-0 text-center">
+          <app-paginator
+            [pagination]="pagination"
+            [form]="paramsForm"
+          ></app-paginator>
+        </td>
+      </tr>
+    </tfoot>
   </table>
 </div>
