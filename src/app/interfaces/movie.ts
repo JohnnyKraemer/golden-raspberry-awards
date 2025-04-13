@@ -22,3 +22,24 @@ export interface Years {
   year: number;
   winnerCount: number;
 }
+
+export interface StudiosList {
+  studios: Studio[];
+}
+
+export interface Studio {
+  name: string;
+  winCount: number;
+}
+
+export interface Interval {
+  min: IntervalValue;
+  max: IntervalValue;
+}
+
+export interface IntervalValue {
+  producer: string;
+  interval: number;
+  previousWin: number;
+  followingWin: number;
+}
