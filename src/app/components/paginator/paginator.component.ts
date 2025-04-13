@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Pagination } from '../../interfaces/pagination';
 
 @Component({
   selector: 'app-paginator',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './paginator.component.html',
 })
 export class PaginatorComponent<T> {
@@ -29,9 +29,7 @@ export class PaginatorComponent<T> {
     this.form.patchValue({ page });
   }
 
-  changePageSize(event: Event) {
-    const target = event.target as HTMLSelectElement;
-    const size = Number(target.value);
+  changePageSizeFromValue(size: number) {
     this.form.patchValue({ size, page: 0 });
   }
 }

@@ -1,4 +1,7 @@
-<div class="flex items-center justify-between p-2 pt-4 text-sm" *ngIf="pagination">
+<div
+  class="flex items-center justify-between p-2 pt-4 text-sm"
+  *ngIf="pagination"
+>
   <div class="flex items-center space-x-1">
     <button
       class="h-9 w-9 flex items-center justify-center rounded transition font-semibold"
@@ -63,8 +66,8 @@
     <select
       id="size"
       class="h-9 px-2 py-1 rounded border transition cursor-pointer"
-      [value]="pagination.size"
-      (change)="changePageSize($event)"
+      [ngModel]="pagination.size"
+      (ngModelChange)="changePageSizeFromValue($event)"
     >
       <option *ngFor="let s of [5, 10, 15, 20, 50]" [value]="s">{{ s }}</option>
     </select>
