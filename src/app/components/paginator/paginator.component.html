@@ -65,7 +65,7 @@
     <label for="size" class="mr-2 font-semibold">Itens por página:</label>
     <select
       id="size"
-      class="h-9 py-1 rounded border transition cursor-pointer"
+      class="h-9 py-1 px-2 rounded border transition cursor-pointer"
       [ngModel]="pagination.size"
       (ngModelChange)="changePageSizeFromValue($event)"
     >
