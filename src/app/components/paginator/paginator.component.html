@@ -1,10 +1,10 @@
 <div
-  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-2 pt-4 text-sm"
+  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-2 text-sm"
   *ngIf="pagination"
 >
   <div class="flex flex-wrap justify-center gap-1">
     <button
-      class="h-9 px-3 rounded transition font-semibold"
+      class="h-9 rounded transition font-semibold flex items-center"
       [class.opacity-50]="pagination.first"
       [class.cursor-pointer]="!pagination.first"
       [class.cursor-default]="pagination.first"
@@ -15,7 +15,7 @@
     </button>
 
     <button
-      class="h-9 px-3 rounded transition font-semibold"
+      class="h-9 rounded transition font-semibold flex items-center"
       [class.opacity-50]="pagination.first"
       [class.cursor-pointer]="!pagination.first"
       [class.cursor-default]="pagination.first"
@@ -39,7 +39,7 @@
     </ng-container>
 
     <button
-      class="h-9 px-3 rounded transition font-semibold"
+      class="h-9 rounded transition font-semibold flex items-center"
       [class.opacity-50]="pagination.last"
       [class.cursor-pointer]="!pagination.last"
       [class.cursor-default]="pagination.last"
@@ -50,7 +50,7 @@
     </button>
 
     <button
-      class="h-9 px-3 rounded transition font-semibold"
+      class="h-9 rounded transition font-semibold flex items-center"
       [class.opacity-50]="pagination.last"
       [class.cursor-pointer]="!pagination.last"
       [class.cursor-default]="pagination.last"
@@ -65,7 +65,7 @@
     <label for="size" class="mr-2 font-semibold">Itens por página:</label>
     <select
       id="size"
-      class="h-9 px-2 py-1 rounded border transition cursor-pointer"
+      class="h-9 py-1 rounded border transition cursor-pointer"
       [ngModel]="pagination.size"
       (ngModelChange)="changePageSizeFromValue($event)"
     >
