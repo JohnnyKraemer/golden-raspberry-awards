@@ -104,3 +104,11 @@ body {
 .badge-danger {
   @apply bg-red-500;
 }
+
+.card {
+  @apply overflow-x-auto rounded-lg border border-gray-200 shadow-sm p-3
+}
+
+.card-title {
+  @apply text-lg font-semibold ms-1 mb-3;
+}

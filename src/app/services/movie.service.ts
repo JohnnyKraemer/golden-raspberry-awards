@@ -36,7 +36,7 @@ export class MovieService {
     return this.http.get<StudiosList>(`${this.baseUrl}?projection=studios-with-win-count`);
   }
 
-  getProducersIntervalWins(): Observable<Interval[]> {
-    return this.http.get<Interval[]>(`${this.baseUrl}?projection=max-min-win-interval-for-pro`);
+  getProducersIntervalWins(): Observable<Interval> {
+    return this.http.get<Interval>(`${this.baseUrl}?projection=max-min-win-interval-for-producers`);
   }
 }

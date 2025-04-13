@@ -33,8 +33,8 @@ export interface Studio {
 }
 
 export interface Interval {
-  min: IntervalValue;
-  max: IntervalValue;
+  min: IntervalValue[];
+  max: IntervalValue[];
 }
 
 export interface IntervalValue {

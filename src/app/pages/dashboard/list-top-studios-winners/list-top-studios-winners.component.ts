@@ -6,9 +6,9 @@ import { Studio } from '../../../interfaces/movie';
 @Component({
   selector: 'app-list-top-studios-winners',
   imports: [CommonModule],
-  templateUrl: './list-top-studios-winners.component.html'
+  templateUrl: './list-top-studios-winners.component.html',
 })
-export class ListTopStudiosWinnersComponent  implements OnInit {
+export class ListTopStudiosWinnersComponent implements OnInit {
   private movieService = inject(MovieService);
 
   studios: Studio[] = [];

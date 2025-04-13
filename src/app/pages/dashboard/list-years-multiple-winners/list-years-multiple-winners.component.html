@@ -1,21 +1,24 @@
+<div class="card">
+  <h2 class="card-title">Lista de anos com multiplos vencedores</h2>
 
-<div class="table-container">
-  <table class="table">
-    <thead class="table-header">
-      <tr>
-        <th class="table-header-cell">Ano</th>
-        <th class="table-header-cell">Quantidade de Vitórias</th>
-      </tr>
-    </thead>
-    <tbody class="table-body">
-      <tr *ngFor="let year of years" class="table-row">
-        <td class="table-cell table-cell-text">
-          {{ year.year }}
-        </td>
-        <td class="table-cell table-cell-muted">
-          {{ year.winnerCount }}
-        </td>       
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="table">
+      <thead class="table-header">
+        <tr>
+          <th class="table-header-cell">Ano</th>
+          <th class="table-header-cell">Quantidade de Vitórias</th>
+        </tr>
+      </thead>
+      <tbody class="table-body">
+        <tr *ngFor="let year of years" class="table-row">
+          <td class="table-cell table-cell-text">
+            {{ year.year }}
+          </td>
+          <td class="table-cell table-cell-muted">
+            {{ year.winnerCount }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

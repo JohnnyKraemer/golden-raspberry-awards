@@ -1,0 +1,71 @@
+<div class="card">
+  <h2 class="card-title">
+    Produtores com mais longo e mais curto intervalo entre vitórias
+  </h2>
+
+  <div class="relative">
+    <h1 class="text-lg">Máximo de vitórias</h1>
+
+    <div class="table-container">
+      <table class="table">
+        <thead class="table-header">
+          <tr>
+            <th class="table-header-cell">Produtor</th>
+            <th class="table-header-cell">Intervalo</th>
+            <th class="table-header-cell">Ano anterior</th>
+            <th class="table-header-cell">Ano seguinte</th>
+          </tr>
+        </thead>
+        <tbody class="table-body">
+          <tr *ngFor="let obj of interval?.max" class="table-row">
+            <td class="table-cell table-cell-text">
+              {{ obj.producer }}
+            </td>
+            <td class="table-cell table-cell-muted">
+              {{ obj.interval }}
+            </td>
+            <td class="table-cell table-cell-muted">
+              {{ obj.previousWin }}
+            </td>
+            <td class="table-cell table-cell-muted">
+              {{ obj.followingWin }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="relative">
+    <h1 class="text-lg">Minimo de vitórias</h1>
+
+    <div class="table-container">
+      <table class="table">
+        <thead class="table-header">
+          <tr>
+            <th class="table-header-cell">Produtor</th>
+            <th class="table-header-cell">Intervalo</th>
+            <th class="table-header-cell">Ano anterior</th>
+            <th class="table-header-cell">Ano seguinte</th>
+          </tr>
+        </thead>
+        <tbody class="table-body">
+          <tr *ngFor="let obj of interval?.min" class="table-row">
+            <td class="table-cell table-cell-text">
+              {{ obj.producer }}
+            </td>
+            <td class="table-cell table-cell-muted">
+              {{ obj.interval }}
+            </td>
+            <td class="table-cell table-cell-muted">
+              {{ obj.previousWin }}
+            </td>
+            <td class="table-cell table-cell-muted">
+              {{ obj.followingWin }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

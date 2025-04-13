@@ -1,21 +1,24 @@
+<div class="card">
+  <h2 class="card-title">Top 3 estudios com mais vitórias</h2>
 
-<div class="table-container">
-  <table class="table">
-    <thead class="table-header">
-      <tr>
-        <th class="table-header-cell">Nome</th>
-        <th class="table-header-cell">Quantidade de Vitórias</th>
-      </tr>
-    </thead>
-    <tbody class="table-body">
-      <tr *ngFor="let studio of studios" class="table-row">
-        <td class="table-cell table-cell-text">
-          {{ studio.name }}
-        </td>
-        <td class="table-cell table-cell-muted">
-          {{ studio.winCount }}
-        </td>       
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="table">
+      <thead class="table-header">
+        <tr>
+          <th class="table-header-cell">Nome</th>
+          <th class="table-header-cell">Quantidade de Vitórias</th>
+        </tr>
+      </thead>
+      <tbody class="table-body">
+        <tr *ngFor="let studio of studios" class="table-row">
+          <td class="table-cell table-cell-text">
+            {{ studio.name }}
+          </td>
+          <td class="table-cell table-cell-muted">
+            {{ studio.winCount }}
+          </td>       
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
