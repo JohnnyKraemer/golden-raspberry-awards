@@ -1,7 +1,16 @@
-<app-topbar></app-topbar>
-<div class="flex">
-  <app-sidebar></app-sidebar>
-  <main class="flex-1 p-4">
-    <router-outlet></router-outlet>
-  </main>
+<div class="flex flex-col min-h-screen">
+  <app-topbar (toggleSidebar)="toggleSidebar()"></app-topbar>
+
+  <div class="flex flex-1">
+    <aside
+      class="bg-gray-100 w-56 transition-all duration-300 ease-in-out"
+      [class.-ml-56]="!showSidebar"
+    >
+      <app-sidebar></app-sidebar>
+    </aside>
+
+    <main class="flex-1 p-2 md:p-4 bg-white">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
 </div>

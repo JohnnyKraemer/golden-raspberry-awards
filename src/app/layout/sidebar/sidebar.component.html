@@ -1,6 +1,24 @@
-<nav class="w-64 bg-gray-100 h-screen p-4">
-  <ul class="space-y-2">
-    <li><a routerLink="/dashboard" class="block p-2 hover:bg-gray-200 rounded">Dashboard</a></li>
-    <li><a routerLink="/list" class="block p-2 hover:bg-gray-200 rounded">Lista de filmes</a></li>
+<aside class="w-56 bg-gray-800 text-white h-full shadow-md transition-all duration-300 ease-in-out">
+  <ul class="flex flex-col">
+    <li>
+      <a 
+        routerLink="/dashboard" 
+        routerLinkActive="bg-gray-700"
+        class="flex items-center w-full px-4 py-3 hover:bg-gray-700 transition-colors duration-200"
+      >
+        <span class="material-icons mr-3">home</span>
+        Dashboard
+      </a>
+    </li>
+    <li>
+      <a 
+        routerLink="/list" 
+        routerLinkActive="bg-gray-700"
+        class="flex items-center w-full px-4 py-3 hover:bg-gray-700 transition-colors duration-200"
+      >
+        <span class="material-icons mr-3">list</span>
+        Lista de Filmes
+      </a>
+    </li>
   </ul>
-</nav>
+</aside>

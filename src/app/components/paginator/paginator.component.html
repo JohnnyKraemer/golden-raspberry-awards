@@ -1,10 +1,10 @@
 <div
-  class="flex items-center justify-between p-2 pt-4 text-sm"
+  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-2 pt-4 text-sm"
   *ngIf="pagination"
 >
-  <div class="flex items-center space-x-1">
+  <div class="flex flex-wrap justify-center gap-1">
     <button
-      class="h-9 w-9 flex items-center justify-center rounded transition font-semibold"
+      class="h-9 px-3 rounded transition font-semibold"
       [class.opacity-50]="pagination.first"
       [class.cursor-pointer]="!pagination.first"
       [class.cursor-default]="pagination.first"
@@ -15,7 +15,7 @@
     </button>
 
     <button
-      class="h-9 w-9 flex items-center justify-center rounded transition font-semibold"
+      class="h-9 px-3 rounded transition font-semibold"
       [class.opacity-50]="pagination.first"
       [class.cursor-pointer]="!pagination.first"
       [class.cursor-default]="pagination.first"
@@ -27,9 +27,9 @@
 
     <ng-container *ngFor="let page of pages()">
       <button
-        class="h-9 w-9 flex items-center justify-center rounded transition font-semibold"
+        class="h-9 px-3 rounded transition font-semibold"
         [ngClass]="{
-          'bg-blue-500 text-white': page === pagination.number,
+          'bg-gray-800 text-white': page === pagination.number,
           'cursor-pointer': page !== pagination.number
         }"
         (click)="goToPage(page)"
@@ -39,7 +39,7 @@
     </ng-container>
 
     <button
-      class="h-9 w-9 flex items-center justify-center rounded transition font-semibold"
+      class="h-9 px-3 rounded transition font-semibold"
       [class.opacity-50]="pagination.last"
       [class.cursor-pointer]="!pagination.last"
       [class.cursor-default]="pagination.last"
@@ -50,7 +50,7 @@
     </button>
 
     <button
-      class="h-9 w-9 flex items-center justify-center rounded transition font-semibold"
+      class="h-9 px-3 rounded transition font-semibold"
       [class.opacity-50]="pagination.last"
       [class.cursor-pointer]="!pagination.last"
       [class.cursor-default]="pagination.last"
@@ -61,8 +61,8 @@
     </button>
   </div>
 
-  <div class="flex items-center space-x-2">
-    <label for="size">Itens por página:</label>
+  <div class="flex items-center justify-center sm:justify-end">
+    <label for="size" class="mr-2 font-semibold">Itens por página:</label>
     <select
       id="size"
       class="h-9 px-2 py-1 rounded border transition cursor-pointer"

@@ -9,4 +9,26 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, RouterOutlet, TopbarComponent, SidebarComponent],
   templateUrl: './layout.component.html',
 })
-export class LayoutComponent {}
+export class LayoutComponent {
+  showSidebar = window.innerWidth >= 640;
+
+  ngOnInit(): void {
+    this.checkWindowWidth();
+    window.addEventListener('resize', this.checkWindowWidth);
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('resize', this.checkWindowWidth);
+  }
+
+  toggleSidebar() {
+    this.showSidebar = !this.showSidebar;
+  }
+
+  checkWindowWidth = () => {
+    const shouldBeVisible = window.innerWidth >= 640;
+    if (this.showSidebar !== shouldBeVisible) {
+      this.showSidebar = shouldBeVisible;
+    }
+  };
+}

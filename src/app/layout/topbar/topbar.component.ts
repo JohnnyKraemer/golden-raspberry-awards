@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,4 +6,6 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './topbar.component.html',
 })
-export class TopbarComponent {}
+export class TopbarComponent {
+  @Output() toggleSidebar = new EventEmitter<void>();
+}
