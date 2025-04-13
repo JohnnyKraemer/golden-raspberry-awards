@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../../src/environments/environment';
-import { GetMoviesParams, Movie } from '../interfaces/movie';
+import { GetMoviesParams, Movie, YearsList } from '../interfaces/movie';
 import { Observable } from 'rxjs';
 import { Pagination } from '../interfaces/pagination';
 
@@ -26,5 +26,9 @@ export class MovieService {
     }
 
     return this.http.get<Pagination<Movie>>(this.baseUrl, { params: httpParams });
+  }
+
+  getYearsMultipleWinners(): Observable<YearsList> {
+    return this.http.get<YearsList>(`${this.baseUrl}?projection=years-with-multiple-winners`);
   }
 }

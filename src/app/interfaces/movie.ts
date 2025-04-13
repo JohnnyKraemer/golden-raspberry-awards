@@ -13,3 +13,12 @@ export interface Movie {
   producers?: string[];
   winner: boolean;
 }
+
+export interface YearsList {
+  years: Years[];
+}
+
+export interface Years {
+  year: number;
+  winnerCount: number;
+}
