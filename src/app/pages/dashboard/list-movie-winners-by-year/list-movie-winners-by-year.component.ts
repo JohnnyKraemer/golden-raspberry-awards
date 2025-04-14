@@ -52,8 +52,6 @@ export class ListMovieWinnersByYearComponent implements OnInit {
           this.fetchMovies();
         }
       });
-
-    this.fetchMovies();
   }
 
   fetchMovies(): void {

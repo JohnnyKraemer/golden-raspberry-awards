@@ -12,6 +12,10 @@ export const loaderInterceptor: HttpInterceptorFn = (
   loaderService.show();
 
   return next(req).pipe(
-    finalize(() => loaderService.hide())
+    finalize(() => {
+      setTimeout(() => {
+        loaderService.hide()
+      }, 600); // Adicionar atraso para simular o carregamento
+    })
   );
 };

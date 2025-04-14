@@ -52,8 +52,6 @@ export class ListComponent implements OnInit {
           this.fetchMovies();
         }
       });
-
-    this.fetchMovies();
   }
 
   fetchMovies(): void {

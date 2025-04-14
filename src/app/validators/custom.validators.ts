@@ -21,7 +21,7 @@ export class CustomValidators {
         return { notInteger: true };
       }
 
-      if (year < 1900 || year > currentYear) {
+      if (year < 1980 || year > currentYear) {
         return { invalidRange: true };
       }
       return null;

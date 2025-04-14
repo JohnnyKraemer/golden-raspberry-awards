@@ -1,16 +1,39 @@
-<header class="w-full h-16 bg-gray-800 text-white flex items-center px-4 shadow">
-  <button 
-    (click)="toggleSidebar.emit()" 
+<header
+  class="w-full h-16 bg-gray-800 text-white flex items-center px-4 shadow"
+>
+  <button
+    (click)="toggleSidebar.emit()"
     class="flex items-center justify-center h-full text-white focus:outline-none cursor-pointer"
   >
     <span class="material-icons text-3xl">menu</span>
   </button>
 
-  <!-- <h1 class="ml-4 text-xl font-semibold">Golden Raspberry Awards</h1> -->
-
-  <div class="flex items-center space-x-2 cursor-pointer ms-3" [routerLink]="'/dashboard'">
-    <img src="/img/logo.png" alt="Logo" class="h-10 w-auto" />
+  <div
+    class="flex items-center space-x-2 cursor-pointer ms-3"
+    [routerLink]="'/dashboard'"
+  >
     <span class="text-xl font-semibold">Golden Raspberry Awards</span>
     <img src="/img/logo.png" alt="Logo" class="h-10 w-auto" />
+  </div>
+
+  <div class="ms-auto">
+    <label class="flex items-center cursor-pointer">
+      <span class="text-sm font-bold me-2">Modo escuro:</span>
+      <input
+        type="checkbox"
+        [checked]="isDark"
+        (change)="toggleDarkMode()"
+        class="sr-only"
+      />
+      <div class="relative">
+        <div
+          class="block w-10 h-6 bg-gray-300 dark:bg-gray-600 rounded-full"
+        ></div>
+        <div
+          class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition transform"
+          [ngClass]="{ 'translate-x-4': isDark }"
+        ></div>
+      </div>
+    </label>
   </div>
 </header>

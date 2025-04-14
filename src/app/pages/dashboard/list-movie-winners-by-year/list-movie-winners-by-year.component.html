@@ -1,7 +1,5 @@
 <div class="card">
-  <h2 class="card-title">
-    Lista de Filmes Vencedores por Ano
-  </h2>
+  <h2 class="card-title">Lista de filmes vencedores por ano</h2>
 
   <div class="mt-2 mb-3">
     <app-table-filter
@@ -29,6 +27,12 @@
             {{ movie.year }}
           </td>
           <td class="table-cell table-cell-muted">{{ movie.title }}</td>
+        </tr>
+
+        <tr *ngIf="movies.length === 0" class="table-row">
+          <td colspan="100%" class="table-cell table-cell-text text-center">
+            Nenhum filme encontrado.
+          </td>
         </tr>
       </tbody>
       <tfoot>

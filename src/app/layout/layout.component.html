@@ -1,16 +1,16 @@
-<div class="flex flex-col min-h-screen">
+<div class="flex flex-col min-h-screen dark:bg-black">
   <app-loader />
   <app-topbar (toggleSidebar)="toggleSidebar()"></app-topbar>
 
   <div class="flex flex-1">
     <aside
-      class="bg-gray-100 w-56 transition-all duration-300 ease-in-out"
+      class="bg-gray-100  w-56 transition-all duration-300 ease-in-out"
       [class.-ml-56]="!showSidebar"
     >
       <app-sidebar></app-sidebar>
     </aside>
 
-    <main class="flex-1 p-2 md:p-4 bg-white">
+    <main class="flex-1 p-2 md:p-4 bg-white dark:bg-neutral-700 dark:text-white">
       <router-outlet></router-outlet>
     </main>
   </div>
