@@ -1,59 +1,78 @@
-# GoldenRaspberryAwards
+<p align="center">
+  <img src="https://golden-raspberry-awards-abeb6.web.app/img/logo_full.png" alt="Golden Raspberry Awards Logo" width="100"/>
+</p>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
+<h1 align="center">Golden Raspberry Awards - Frontend</h1>
 
-## Development server
+Aplicação frontend desenvolvida em Angular 19 com Tailwind CSS 4, que consome dados de uma API externa para exibir a lista de indicados e vencedores da categoria **Pior Filme** do Golden Raspberry Awards. Este projeto foi desenvolvido como parte de um desafio técnico.
 
-To start a local development server, run:
+> **Acesse a demo**: [golden-raspberry-awards-abeb6.web.app](https://golden-raspberry-awards-abeb6.web.app)  
+> **Repositório GitHub**: [github.com/JohnnyKraemer/golden-raspberry-awards](https://github.com/JohnnyKraemer/golden-raspberry-awards)
+
+## Especificação do Projeto
+
+O objetivo do projeto é desenvolver uma interface web com duas visualizações principais:
+
+- **Dashboard**: exibe informações consolidadas como anos com múltiplos vencedores, produtores com mais prêmios, maior e menor intervalo entre vitórias.
+- **Lista de Filmes**: exibe todos os filmes indicados e seus respectivos vencedores.
+
+A fonte dos dados é a seguinte API:  
+[`https://challenge.outsera.tech/api/movies`](https://challenge.outsera.tech/api/movies)
+
+## Tecnologias Utilizadas
+
+- [Angular 19](https://angular.dev/) – Framework para construção de SPA
+- [TypeScript](https://www.typescriptlang.org/) – Superset de JavaScript com tipagem estática
+- [Tailwind CSS 4](https://tailwindcss.com/) – Framework utilitário para estilos CSS
+- [Node.js 22](https://nodejs.org/en) – Ambiente de execução JavaScript no backend
+- [RxJS](https://rxjs.dev/) – Programação reativa com observables
+- [Jasmine](https://jasmine.github.io/) + [Karma](https://karma-runner.github.io/) – Testes unitários no Angular
+
+## Pré-requisitos
+
+Antes de iniciar, você vai precisar ter instalado em sua máquina:
+
+- [Node.js v22+](https://nodejs.org/en)
+- [Angular CLI](https://angular.io/cli)
+- [Git](https://git-scm.com/)
+- [npm](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
+
+## Como clonar e rodar o projeto
 
 ```bash
+# Clone o repositório
+git clone https://github.com/JohnnyKraemer/golden-raspberry-awards.git
+
+# Acesse a pasta do projeto
+cd golden-raspberry-awards
+
+# Instale as dependências
+npm install
+# ou
+yarn install
+
+# Rode o servidor de desenvolvimento
 ng serve
+
+# Acesse no navegador
+http://localhost:4200
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Testes Unitários
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Para rodar os testes unitários da aplicação:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+Os testes utilizam Jasmine + Karma, e cobrem os principais fluxos da aplicação, garantindo a renderização correta da interface, comportamento responsivo, filtros por ano e vencedores, paginação, debounce de formulários e validação antes de requisições. Também assegura o consumo adequado dos dados da API e a exibição precisa de informações como estúdios mais premiados, produtores com maior intervalo entre vitórias e anos com múltiplos vencedores.
 
-For end-to-end (e2e) testing, run:
 
-```bash
-ng e2e
-```
+## Autor
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Johnny Rockembach Kraemer
 
-## Additional Resources
+Email: johnnycomj@gmail.com
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+WhatsApp: (46) 9 9109-0380
