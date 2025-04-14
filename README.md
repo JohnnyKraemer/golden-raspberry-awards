@@ -33,7 +33,7 @@ A fonte dos dados é a seguinte API:
 Antes de iniciar, você vai precisar ter instalado em sua máquina:
 
 - [Node.js v22+](https://nodejs.org/en)
-- [Angular CLI](https://angular.io/cli)
+- [Angular CLI](https://angular.dev/cli)
 - [Git](https://git-scm.com/)
 - [npm](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/)
 
@@ -68,6 +68,17 @@ ng test
 
 Os testes utilizam Jasmine + Karma, e cobrem os principais fluxos da aplicação, garantindo a renderização correta da interface, comportamento responsivo, filtros por ano e vencedores, paginação, debounce de formulários e validação antes de requisições. Também assegura o consumo adequado dos dados da API e a exibição precisa de informações como estúdios mais premiados, produtores com maior intervalo entre vitórias e anos com múltiplos vencedores.
 
+## Diferenciais do Projeto
+
+Este projeto foi desenvolvido utilizando práticas modernas do ecossistema Angular e com foco na escalabilidade, legibilidade e experiência do usuário. Entre os principais diferenciais, destacam-se:
+
+- Modern Angular: uso de standalone components, eliminando a necessidade de módulos (NgModules), tornando o código mais simples, direto e modular.
+
+- TailwindCSS: padronização na nomenclatura das classes de estilo, utilizando também a diretiva @apply para criar classes utilitárias reutilizáveis, facilitando o entendimento e a manutenção dos estilos.
+
+- Organização de código: estrutura clara e separação de responsabilidades entre componentes, serviços e utilitários, permitindo que o projeto cresça de forma ordenada e sustentável.
+
+- Modo escuro nativo: aproveitamento dos recursos do TailwindCSS para oferecer suporte completo ao tema escuro.
 
 ## Autor
 
