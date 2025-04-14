@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-black: #18181C;
-  --color-theme: #FAFAFA;
+  --color-black: #18181c;
+  --color-theme: #fafafa;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -58,9 +58,8 @@ body {
   padding-bottom: 70px;
 }
 
-
 .table-container {
-  @apply overflow-x-auto rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900/30;
+  @apply rounded-lg border border-gray-200 shadow-sm dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900/30 max-w-[calc(100dvw-16px)] overflow-x-scroll;
 }
 
 .table {
