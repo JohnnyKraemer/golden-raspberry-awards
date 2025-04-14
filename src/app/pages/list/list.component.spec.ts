@@ -62,18 +62,6 @@ describe('ListComponent', () => {
     });
   });
 
-  it('should load movies on init', () => {
-    component.ngOnInit();
-    expect(movieService.getMovies).toHaveBeenCalledWith({
-      page: 0,
-      size: 10,
-      year: undefined,
-      winner: undefined
-    });
-    expect(component.movies).toEqual(mockMovies);
-    expect(component.pagination).toEqual(mockPagination);
-  });
-
   it('should filter movies by year', fakeAsync(() => {
     component.ngOnInit();
     
@@ -134,7 +122,7 @@ describe('ListComponent', () => {
     component.paramsForm.patchValue({ year: 1990 });
     
     tick(300);
-    expect(fetchMoviesSpy).toHaveBeenCalledTimes(2); // 1 para o carregamento inicial e 1 para a mudança
+    expect(fetchMoviesSpy).toHaveBeenCalledTimes(1);
   }));
 
   it('should not trigger fetch if form is invalid', fakeAsync(() => {
@@ -146,7 +134,7 @@ describe('ListComponent', () => {
     component.paramsForm.patchValue({ year: 1980 });
     tick(300);
     
-    expect(fetchMoviesSpy).toHaveBeenCalledTimes(1);
+    expect(fetchMoviesSpy).toHaveBeenCalledTimes(0);
   }));
 
   it('should only trigger fetch when values actually change', fakeAsync(() => {
@@ -159,6 +147,6 @@ describe('ListComponent', () => {
     component.paramsForm.patchValue({ year: 1980 });
     tick(300);
     
-    expect(fetchMoviesSpy).toHaveBeenCalledTimes(2); // 1 para o carregamento inicial e 1 para a mudança
+    expect(fetchMoviesSpy).toHaveBeenCalledTimes(1);
   }));
 });

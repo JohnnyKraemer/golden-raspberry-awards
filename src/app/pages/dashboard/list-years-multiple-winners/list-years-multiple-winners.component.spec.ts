@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ListYearsMultipleWinnersComponent } from './list-years-multiple-winners.component';
 import { MovieService } from '../../../services/movie.service';
 import { of } from 'rxjs';
-import { Years } from '../../../interfaces/movie';
 import { CommonModule } from '@angular/common';
 
 describe('ListYearsMultipleWinnersComponent', () => {
@@ -19,7 +18,6 @@ describe('ListYearsMultipleWinnersComponent', () => {
   };
 
   beforeEach(async () => {
-    // Criar um spy para o MovieService
     const movieServiceSpy = jasmine.createSpyObj('MovieService', ['getYearsMultipleWinners']);
 
     await TestBed.configureTestingModule({
@@ -33,7 +31,6 @@ describe('ListYearsMultipleWinnersComponent', () => {
     component = fixture.componentInstance;
     movieService = TestBed.inject(MovieService) as jasmine.SpyObj<MovieService>;
 
-    // Configurar o retorno do método spy
     movieService.getYearsMultipleWinners.and.returnValue(of(mockYearsData));
   });
 
