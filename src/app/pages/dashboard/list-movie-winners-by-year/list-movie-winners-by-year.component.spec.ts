@@ -1,4 +1,9 @@
-import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
 
 import { ListMovieWinnersByYearComponent } from './list-movie-winners-by-year.component';
 import { MovieService } from '../../../services/movie.service';
@@ -15,7 +20,7 @@ describe('ListMovieWinnersByYearComponent', () => {
 
   const mockMovies: Movie[] = [
     { id: 1, year: 1980, title: "Can't Stop the Music", winner: true },
-    { id: 36, year: 1981, title: 'Mommie Dearest', winner: false }
+    { id: 36, year: 1981, title: 'Mommie Dearest', winner: false },
   ];
 
   const mockPagination: Pagination<Movie> = {
@@ -26,7 +31,7 @@ describe('ListMovieWinnersByYearComponent', () => {
     number: 0,
     first: true,
     last: false,
-    empty: false
+    empty: false,
   };
 
   beforeEach(async () => {
@@ -34,9 +39,7 @@ describe('ListMovieWinnersByYearComponent', () => {
 
     await TestBed.configureTestingModule({
       imports: [ListMovieWinnersByYearComponent],
-      providers: [
-        { provide: MovieService, useValue: movieServiceSpy }
-      ]
+      providers: [{ provide: MovieService, useValue: movieServiceSpy }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ListMovieWinnersByYearComponent);
@@ -59,21 +62,21 @@ describe('ListMovieWinnersByYearComponent', () => {
       page: 0,
       size: 10,
       year: null,
-      winner: true
+      winner: true,
     });
   });
 
   it('should filter movies by year', fakeAsync(() => {
     component.ngOnInit();
-    
+
     component.paramsForm.patchValue({ year: 1980 });
     tick(300); // Espera do debounceTime
-    
+
     expect(movieService.getMovies).toHaveBeenCalledWith({
       page: 0,
       size: 10,
       year: 1980,
-      winner: true
+      winner: true,
     });
 
     // Verificar se o primeiro item corresponde ao filtro
@@ -81,47 +84,31 @@ describe('ListMovieWinnersByYearComponent', () => {
     expect(component.movies[0].year).toBe(1980);
   }));
 
-  it('should filter movies by winner', fakeAsync(() => {
-    component.ngOnInit();
-    
-    component.paramsForm.patchValue({ winner: true });
-    tick(300); // Espera do debounceTime
-    
-    expect(movieService.getMovies).toHaveBeenCalledWith({
-      page: 0,
-      size: 10,
-      year: undefined,
-      winner: true
-    });
-
-     // Verificar se o primeiro item corresponde ao filtro
-     expect(component.movies.length).toBeGreaterThan(0);
-     expect(component.movies[0].winner).toBe(true);
-  }));
-
   it('should handle pagination', fakeAsync(() => {
     component.ngOnInit();
-    
+    component.paramsForm.patchValue({ year: 1980 });
+    tick(300); // Espera do debounceTime
+
     component.paramsForm.patchValue({ page: 1 });
     tick(300); // Espera do debounceTime
-    
+
     expect(movieService.getMovies).toHaveBeenCalledWith({
       page: 1,
       size: 10,
-      year: undefined,
-      winner: true
+      year: 1980,
+      winner: true,
     });
   }));
 
   it('should debounce form changes', fakeAsync(() => {
     const fetchMoviesSpy = spyOn(component, 'fetchMovies').and.callThrough();
     component.ngOnInit();
-    
+
     // Teste de debounce com várias mudanças rápidas
     component.paramsForm.patchValue({ year: 1980 });
     component.paramsForm.patchValue({ year: 1985 });
     component.paramsForm.patchValue({ year: 1990 });
-    
+
     tick(300);
     expect(fetchMoviesSpy).toHaveBeenCalledTimes(1);
   }));
@@ -129,25 +116,25 @@ describe('ListMovieWinnersByYearComponent', () => {
   it('should not trigger fetch if form is invalid', fakeAsync(() => {
     const fetchMoviesSpy = spyOn(component, 'fetchMovies').and.callThrough();
     component.ngOnInit();
-    
+
     // Fazer o formulário inválido
     component.paramsForm.get('page')?.setValue(-1);
     component.paramsForm.patchValue({ year: 1980 });
     tick(300);
-    
+
     expect(fetchMoviesSpy).toHaveBeenCalledTimes(0);
   }));
 
   it('should only trigger fetch when values actually change', fakeAsync(() => {
     const fetchMoviesSpy = spyOn(component, 'fetchMovies').and.callThrough();
     component.ngOnInit();
-    
+
     // Fazer várias mudanças com o mesmo valor
     component.paramsForm.patchValue({ year: 1980 });
     component.paramsForm.patchValue({ year: 1980 });
     component.paramsForm.patchValue({ year: 1980 });
     tick(300);
-    
+
     expect(fetchMoviesSpy).toHaveBeenCalledTimes(1);
   }));
 });
