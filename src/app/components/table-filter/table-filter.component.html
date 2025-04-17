@@ -2,12 +2,12 @@
   <form [formGroup]="form" class="flex flex-col sm:flex-row gap-4 items-start">
     <!-- Filtro de Ano -->
     <div *ngIf="activeFilters.includes('year')" class="w-full sm:w-auto">
-      <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">Ano</label>
+      <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">Year</label>
       <input
         type="number"
         formControlName="year"
         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none h-9 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
-        placeholder="Filtrar por ano"
+        [placeholder]="yearPlaceholder"
         mask="9999"
         [ngClass]="{
           'border-red-300 dark:border-red-500':
@@ -22,13 +22,13 @@
         class="mt-1 text-sm text-red-600 dark:text-red-400"
       >
         <span *ngIf="yearControl?.errors?.['invalidYear']"
-          >Por favor, insira um número válido</span
+          >Please enter a valid number.</span
         >
         <span *ngIf="yearControl?.errors?.['notInteger']"
-          >O ano deve ser um número inteiro</span
+          >The year must be an integer.</span
         >
         <span *ngIf="yearControl?.errors?.['invalidRange']"
-          >O ano deve estar entre 1980 e {{ currentYear }}</span
+          >The year must be between 1980 and {{ currentYear }}.</span
         >
       </div>
     </div>
@@ -36,15 +36,15 @@
     <!-- Filtro de Vencedor -->
     <div *ngIf="activeFilters.includes('winner')" class="w-full sm:w-auto">
       <label class="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300"
-        >Vencedor</label
+        >Winner?</label
       >
       <select
         formControlName="winner"
         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none cursor-pointer dark:bg-gray-700 dark:border-gray-600 dark:text-white"
       >
-        <option [ngValue]="null">Todos</option>
-        <option [ngValue]="true">Sim</option>
-        <option [ngValue]="false">Não</option>
+        <option [ngValue]="null">All</option>
+        <option [ngValue]="true">Yes</option>
+        <option [ngValue]="false">No</option>
       </select>
     </div>
 
@@ -54,7 +54,7 @@
       (click)="clearFilters()"
       class="w-full sm:w-auto px-4 py-2 mt-6 h-9 cursor-pointer border border-transparent text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-offset-2 focus:ring-gray-500 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
     >
-      Limpar Filtros
+      Clear filters
     </button>
   </form>
 </div>

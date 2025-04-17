@@ -1,5 +1,5 @@
 <div class="relative">
-  <h1 class="text-lg md:text-2xl font-bold">Todos os Filmes Indicados</h1>
+  <h1 class="text-lg md:text-2xl font-bold">List movies</h1>
 
   <div class="mt-1 mb-2">
     <app-table-filter
@@ -14,9 +14,9 @@
       <thead class="table-header">
         <tr>
           <th class="table-header-cell">ID</th>
-          <th class="table-header-cell">Ano</th>
-          <th class="table-header-cell">Título</th>
-          <th class="table-header-cell">Vencedor</th>
+          <th class="table-header-cell">Year</th>
+          <th class="table-header-cell">Title</th>
+          <th class="table-header-cell">Winner?</th>
         </tr>
       </thead>
       <tbody class="table-body">
@@ -33,14 +33,14 @@
               class="badge"
               [ngClass]="movie.winner ? 'badge-success' : 'badge-danger'"
             >
-              {{ movie.winner ? "Sim" : "Não" }}
+              {{ movie.winner ? "Yes" : "No" }}
             </span>
           </td>
         </tr>
 
         <tr *ngIf="movies.length === 0" class="table-row">
           <td colspan="100%" class="table-cell table-cell-text text-center">
-            Nenhum filme encontrado.
+            Results not found.
           </td>
         </tr>
       </tbody>
