@@ -1,6 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MovieService } from '../../services/movie.service';
 import { GetMoviesParams, Movie } from '../../interfaces/movie';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -40,18 +45,32 @@ export class ListComponent implements OnInit {
   pagination: Pagination<Movie> | null = null;
 
   ngOnInit(): void {
+    this.paramsForm.get('year')?.valueChanges.subscribe(() => {
+      if (this.paramsForm.valid) {
+        this.paramsForm.patchValue({ page: 0 }, { emitEvent: false });
+      }
+    });
+
+    this.paramsForm.get('winner')?.valueChanges.subscribe(() => {
+      if (this.paramsForm.valid) {
+        this.paramsForm.patchValue({ page: 0 }, { emitEvent: false });
+      }
+    });
+
     this.paramsForm.valueChanges
       .pipe(
         debounceTime(300),
-        distinctUntilChanged(
-          (prev, curr) => JSON.stringify(prev) === JSON.stringify(curr)
-        )
+        distinctUntilChanged((prev, curr) => {
+          return JSON.stringify(prev) === JSON.stringify(curr);
+        })
       )
       .subscribe(() => {
         if (this.paramsForm.valid) {
           this.fetchMovies();
         }
       });
+
+    this.fetchMovies();
   }
 
   fetchMovies(): void {

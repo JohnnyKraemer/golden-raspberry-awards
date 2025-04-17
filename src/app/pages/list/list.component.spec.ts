@@ -122,7 +122,8 @@ describe('ListComponent', () => {
     component.paramsForm.patchValue({ year: 1990 });
     
     tick(300);
-    expect(fetchMoviesSpy).toHaveBeenCalledTimes(1);
+    // fechMovies do init + 1 chamada do debounce
+    expect(fetchMoviesSpy).toHaveBeenCalledTimes(2);
   }));
 
   it('should not trigger fetch if form is invalid', fakeAsync(() => {
@@ -134,7 +135,8 @@ describe('ListComponent', () => {
     component.paramsForm.patchValue({ year: 1980 });
     tick(300);
     
-    expect(fetchMoviesSpy).toHaveBeenCalledTimes(0);
+    // O fechMovies é chamado uma vez no init
+    expect(fetchMoviesSpy).toHaveBeenCalledTimes(1);
   }));
 
   it('should only trigger fetch when values actually change', fakeAsync(() => {
@@ -147,6 +149,7 @@ describe('ListComponent', () => {
     component.paramsForm.patchValue({ year: 1980 });
     tick(300);
     
-    expect(fetchMoviesSpy).toHaveBeenCalledTimes(1);
+    // fechMovies do init + 1 chamada do debounce
+    expect(fetchMoviesSpy).toHaveBeenCalledTimes(2);
   }));
 });
